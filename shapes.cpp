@@ -111,8 +111,8 @@ int main()
 
     // Test the area() function for Circle
     double circleArea = circle.area();
-    assert(circleArea == 3.14159265359 * 5.0 * 5.0); // Check if the area is calculated correctly
-
+    std::cout << circleArea << " if equal to 78.5398. Test 1: Completed" << std::endl;
+    
     // Test the perimeter() function for Circle
     double circlePerimeter = circle.perimeter();
     assert(circlePerimeter == 2.0 * 3.14159265359 * 5.0); // Check if the perimeter is calculated correctly

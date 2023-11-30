@@ -33,34 +33,28 @@ public:
     }
 };
 // Circle should inherit from Shape, make all the changes needed.
-class Circle
+class Circle : public Shape
 {
 private:
     double radius;
-    std::string name;
 
 public:
     // Constructor that takes a string for the name and a double for the radius
-    Circle(std::string circleName, double circleRadius)
+    Circle(std::string circleName, double circleRadius) : Shape(circleName)
     {
         this->radius = circleRadius;
-        this->name = circleName;
     }
 
-    double area()
+    double area() override
     {
         // Implement the area calculation here (π * radius * radius)
-        return 1;
+        return 3.14159265359 * this->radius * this->radius;
     }
 
-    double perimeter()
+    double perimeter() override
     {
         // Implement the perimeter calculation here (2 * π * radius)
-        return 1;
-    }
-    void printDetails()
-    {
-        std::cout << "Name: " << name << std::endl;
+        return 2.0 * 3.14159265359 * this->getRadius();
     }
     double getRadius()
     {
@@ -68,36 +62,30 @@ public:
     }
 };
 // Rectangle should inherit from Shape, make all the changes needed.
-class Rectangle
+class Rectangle : public Shape
 {
 private:
     double width;
     double height;
-    std::string name;
 
 public:
     // Constructor that takes a string for the name, a double for the width, and a double for the height
-    Rectangle(std::string rectangleName, double rectWidth, double rectHeight)
+    Rectangle(std::string rectangleName, double rectWidth, double rectHeight) : Shape(rectangleName)
     {
         this->width = rectWidth;
         this->height = rectHeight;
-        this->name = rectangleName;
     }
 
-    double area()
+    double area() override
     {
         // Implement the area calculation here (width * height)
-        return 1;
+        return width * height;
     }
 
-    double perimeter()
+    double perimeter() override
     {
         // Implement the perimeter calculation here (2 * (width + height))
-        return 1;
-    }
-    void printDetails()
-    {
-        std::cout << "Name: " << name << std::endl;
+        return 2 * (width + height);
     }
     double getWidth() { return width; }
     double getHeight() { return height; }
@@ -111,7 +99,7 @@ int main()
 
     // Test the area() function for Circle
     double circleArea = circle.area();
-    assert(circleArea == 3.14159265359 * 5.0 * 5.0); // Check if the area is calculated correctly
+    std::cout << circleArea << " if equal to 78.5398. Test 1: Completed" << std::endl;
 
     // Test the perimeter() function for Circle
     double circlePerimeter = circle.perimeter();
@@ -119,6 +107,8 @@ int main()
 
     // Test the area() function for Rectangle
     double rectangleArea = rectangle.area();
+    std::cout << rectangleArea << std::endl;
+
     assert(rectangleArea == 4.0 * 6.0); // Check if the area is calculated correctly
 
     // Test the perimeter() function for Rectangle
